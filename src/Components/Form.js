@@ -3,12 +3,12 @@ import React from 'react';
 const Form = () =>{
     return(
         <form>
-            <input class="todo-input" type="text" />
-            <button class="todo-button" type="submit">
-                <i class="square"></i>
+            <input className="todo-input" type="text" />
+            <button className="todo-button" type="submit">
+                <i className="square"></i>
             </button>
-            <div>
-                <select name="todos" class="filter-todo">
+            <div className="select">
+                <select name="todos" className="filter-todo">
                     <option value="all">All</option>
                     <option value="completed">Completed</option>
                     <option value="uncompleted">Uncompleted</option>
@@ -18,3 +18,5 @@ const Form = () =>{
     );
 
 }
+
+export default Form;
