@@ -11,10 +11,11 @@ const Form = ({inputText, setInputText,todos, setToDos}) =>{
             ...todos,
             {text: inputText, completed: false}//did not add id value 
         ]);
+        setInputText("");
     }
     return(
         <form>
-            <input onChange={inputTextHandler} className="todo-input" type="text" />
+            <input value={inputText} onChange={inputTextHandler} className="todo-input" type="text" />
             <button onClick={submitToDoHandler} className="todo-button" type="submit">
                 <i className="square"></i>
             </button> 
