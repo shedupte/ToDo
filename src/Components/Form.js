@@ -10,7 +10,7 @@ const Form = ({inputText, setInputText,todos, setToDos}) =>{
         setToDos([
             ...todos,
             {text: inputText, completed: false, id: Math.random()*1000}//new id value added
-             
+
         ]);
         setInputText("");
     }
@@ -18,7 +18,7 @@ const Form = ({inputText, setInputText,todos, setToDos}) =>{
         <form>
             <input value={inputText} onChange={inputTextHandler} className="todo-input" type="text" />
             <button onClick={submitToDoHandler} className="todo-button" type="submit">
-                <i className="square"></i>
+                <i className="fas fa-plus-square"></i>
             </button> 
             <div className="select">
                 <select name="todos" className="filter-todo">
