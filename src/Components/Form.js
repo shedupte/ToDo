@@ -9,7 +9,8 @@ const Form = ({inputText, setInputText,todos, setToDos}) =>{
         e.preventDefault(); //Prevents refresh of page
         setToDos([
             ...todos,
-            {text: inputText, completed: false}//did not add id value 
+            {text: inputText, completed: false, id: Math.random()*1000}//new id value added
+             
         ]);
         setInputText("");
     }
