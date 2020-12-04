@@ -1,3 +1,4 @@
+import { buildQueries } from '@testing-library/react';
 import React,{useState,useEffect} from 'react';
 import "./App.css";
 
@@ -12,10 +13,16 @@ function App() {
   const [todos, setToDos]= useState([]);
   const [status, setStatus]= useState('all');
   const [filteredToDos, setFilteredToDos]=useState([]);
+  
+  //RUN ONCE when the app starts
+  useEffect(() => {
+    getLocalToDos();
+  },[])
 
   //Use Effect 
   useEffect(()=> {
     filterHandler();
+    saveLocalToDos();
   }, [todos, status]);
 
   //Funtions
@@ -33,8 +40,20 @@ function App() {
         setFilteredToDos(todos);
         break;
     }
-  }
+  };
 
+//Save to Local
+const saveLocalToDos= () => {
+      localStorage.setItem('todos',JSON.stringify(todos));
+};
+const getLocalToDos= () => {
+  if(localStorage.getItem('todos')===null){
+    localStorage.setItem('todos',JSON.stringify([]));
+  }else{
+    let todoLocal= JSON.parse(localStorage.getItem("todos"));
+    setToDos(todoLocal);
+  }
+};
   return (
     <div className="App">
       <header>
