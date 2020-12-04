@@ -16,18 +16,18 @@ function App() {
   //Use Effect 
   useEffect(()=> {
     filterHandler();
-  }, [todos,status]);
+  }, [todos, status]);
 
   //Funtions
   const filterHandler = () => {
     // eslint-disable-next-line default-case
     switch(status){
-      case 'completed':
+      case "completed":
         setFilteredToDos(todos.filter(todo=> todo.completed ===true))
         break;
       // eslint-disable-next-line no-duplicate-case
-      case 'uncompleted':
-        setFilteredToDos(todos.filter(todo=> todo.uncompleted ===false))
+      case "uncompleted":
+        setFilteredToDos(todos.filter(todo=> todo.completed ===false))
         break;
       default:
         setFilteredToDos(todos);
@@ -47,9 +47,13 @@ function App() {
       setToDos={setToDos} 
       setInputText={setInputText} 
       setStatus={setStatus}
+      
+      />
+      <ToDoList 
+      setToDos={setToDos} 
+      todos={todos}
       filteredToDos={filteredToDos}
       />
-      <ToDoList setToDos={setToDos} todos={todos}/>
       
     </div>
   );
