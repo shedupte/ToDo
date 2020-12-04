@@ -2,7 +2,7 @@ import React from 'react';
 //Import component
 import ToDo from './ToDo';
 
-const ToDoList = ({todos,setToDos}) => {
+const ToDoList = ({todos,setToDos,filteredToDos}) => {
     return(
         <div className="todo-container">
             <ul className="todo-list">
